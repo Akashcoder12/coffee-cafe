@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Café Website</title>
+  <script src="https://cdn.tailwindcss.com">    // Mobile menu toggle
+    const menuBtn = document.getElementById('menuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+    const closeMenu = document.getElementById('closeMenu');
+
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.style.transform = 'translateX(0)';
+    });
+
+    closeMenu.addEventListener('click', () => {
+      mobileMenu.style.transform = 'translateX(-100%)';
+    });
+  </script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+  <header class="bg-black text-white shadow p-4 fixed w-full z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-yellow-500">Coffee House</h1>
+      <nav class="space-x-6 hidden md:flex">
+        <a href="#home" class="hover:text-yellow-500">Home</a>
+        <a href="#menu" class="hover:text-yellow-500">Menu</a>
+        <a href="#about" class="hover:text-yellow-500">About</a>
+        <a href="#contact" class="hover:text-yellow-500">Contact</a>
+      </nav>
+      <button id="menuBtn" class="md:hidden text-yellow-500 text-3xl">☰</button>
+    </div>
+
+    <!-- Mobile Menu Slide -->
+    <div id="mobileMenu" class="fixed top-0 left-0 h-full w-64 bg-black text-white p-6 transform -translate-x-full transition-transform duration-300 md:hidden">
+      <button id="closeMenu" class="text-3xl text-yellow-500 mb-6">✕</button>
+      <nav class="flex flex-col space-y-6">
+        <a href="#home" class="hover:text-yellow-500">Home</a>
+        <a href="#menu" class="hover:text-yellow-500">Menu</a>
+        <a href="#about" class="hover:text-yellow-500">About</a>
+        <a href="#contact" class="hover:text-yellow-500">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home" class="h-screen flex items-center justify-center bg-[url('https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=1400&q=80')] bg-cover bg-center">
+    <div class="bg-black bg-opacity-50 p-10 rounded-lg text-center text-white">
+      <h2 class="text-4xl font-bold mb-4">Fresh & Delicious Coffee</h2>
+      <p class="text-lg mb-6">Grab your favorite cup now!</p>
+      <a href="#menu" class="px-6 py-3 bg-yellow-500 font-semibold rounded-lg">View Menu</a>
+    </div>
+  </section>
+
+  <!-- Menu Section -->
+  <section id="menu" class="bg-black text-white py-20">
+    <div class="max-w-6xl mx-auto text-center mb-12">
+      <h2 class="text-4xl font-bold text-yellow-500 mb-4">Our Menu</h2>
+      <p class="text-gray-300">Taste the best coffee in the town</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-10 max-w-6xl mx-auto px-6">
+      <div class="bg-gray-900 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl text-yellow-500 font-semibold mb-2">Cappuccino</h3>
+        <p class="text-gray-400">Rich and foamy delight</p>
+        <p class="mt-4 font-bold text-white">₹120</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl text-yellow-500 font-semibold mb-2">Cold Brew</h3>
+        <p class="text-gray-400">Chilled & refreshing</p>
+        <p class="mt-4 font-bold text-white">₹150</p>
+      </div>
+      <div class="bg-gray-900 p-6 rounded-xl shadow-lg">
+        <h3 class="text-2xl text-yellow-500 font-semibold mb-2">Espresso Shot</h3>
+        <p class="text-gray-400">Strong and energizing</p>
+        <p class="mt-4 font-bold text-white">₹100</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="bg-gray-950 text-white py-20 px-6">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <img class="rounded-xl shadow-lg" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=900&q=60" alt="Coffee Shop">
+      <div>
+        <h2 class="text-3xl font-bold text-yellow-500 mb-4">About Us</h2>
+        <p class="text-gray-300 mb-4">We serve premium handcrafted coffees sourced from the finest plantations. Enjoy our cozy ambiance with the rich aroma of freshly brewed coffee.</p>
+        <p class="text-gray-400">Since 2020, our mission is to make your every sip memorable.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="bg-black text-white py-20 text-center">
+    <h2 class="text-4xl font-bold text-yellow-500 mb-6">Contact Us</h2>
+    <p class="text-gray-300 mb-8">Order your favorite coffee anytime!</p>
+    <a href="https://wa.me/919999999999" target="_blank" class="px-8 py-4 bg-yellow-500 text-black font-bold rounded-xl inline-block">Order on WhatsApp</a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-950 text-gray-400 py-6 text-center">
+    <p>© 2025 Coffee House. All Rights Reserved.</p>
+  </footer>
+
+  <script>
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  </script>
+
+</body>
+</html>
